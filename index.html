@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>company project 1</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    
+    .container-fluid {
+      display: flex;
+      flex-wrap: wrap; 
+      height: 100vh;
+    }
+
+    
+    .left-container {
+      background-color: orangered; 
+      padding: 20px;
+      height: 100vh; 
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
+      width: 100%; 
+    }
+
+    
+    .vertical-oval-image {
+      width: 120px;  
+      height: 200px; 
+      object-fit: cover; 
+      border-radius: 50%; 
+      margin-bottom: 20px; 
+      display: block; 
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    
+    .right-container {
+      width: 100%; 
+      padding: 20px;
+      overflow: auto; 
+    }
+
+   
+    .table-responsive {
+      max-height: 70vh; 
+      overflow-y: auto;
+    }
+
+   
+    .active {
+      color: green;
+    }
+
+    .inactive {
+      color: red;
+    }
+
+    .a {
+      text-decoration: underline;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px; 
+      flex-wrap: wrap; 
+    }
+
+    @media (min-width: 768px) {
+      .left-container {
+        width: 25%; 
+      }
+      .right-container {
+        width: 75%; 
+      }
+    }
+
+    @media (max-width: 767px) {
+      .left-container, .right-container {
+        width: 100%; 
+        height: auto; 
+      }
+      .button-container {
+        justify-content: center; 
+      }
+    }
+
+    
+    .form-container {
+      max-width: 100%;
+      margin-top: 20px;
+    }
+
+    .form-label {
+      font-weight: bold;
+    }
+
+    .form-row {
+      margin-bottom: 15px;
+    }
+    
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <!-- Left side container -->
+  <div class="col-12 col-md-3 left-container">
+    <div class="left-vertical-container">
+      <img src="images/men.jpg" alt="Vertical Oval Image" class="vertical-oval-image img-fluid">
+      <center>
+        <p>D.O.C: 28/04/2023</p>
+        <p>Status: Complete</p>
+        <button class="a">Back Home</button>
+      </center>
+    </div>
+  </div>
+
+  <!-- Right side content with table -->
+  <div class="col-12 col-md-9 right-container">
+    <div class="button-container mb-3">
+      <a class="btn btn-warning" href="#" role="button">ADD Beneficiaries</a>
+      <button class="btn btn-warning" type="submit">ADD Asset</button>
+      <input class="btn btn-warning" type="button" value="ADD Liability">
+      <input class="btn btn-warning" type="submit" value="CREATE Links">
+      <input class="btn btn-warning" type="reset" value="ADD Signature">
+      <input class="btn btn-warning" type="reset" value="Will Generation">
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Relationship</th>
+            <th scope="col">Date Of Birth</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Vaishnavi</td>
+            <td>Sister</td>
+            <td>1988-10-04</td>
+            <td class="active">Active</td>
+            <td>
+              <button class="btn btn-success" onclick="editRow(this)">Edit</button>
+              <button class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Vaishnavi</td>
+            <td>Sister</td>
+            <td>1988-10-04</td>
+            <td class="inactive">Inactive</td>
+            <td>
+              <button class="btn btn-success" onclick="editRow(this)">Edit</button>
+              <button class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Ramya</td>
+            <td>Sister</td>
+            <td>2005-07-14</td>
+            <td class="active">Active</td>
+            <td>
+              <button class="btn btn-success" onclick="editRow(this)">Edit</button>
+              <button class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--  Form Section -->
+    <h4>Add New Beneficiaries</h4>
+    <form class="form-container">
+      <div class="form-row">
+        <div class="col-12 col-md-15 mb-3">
+          <label for="formGroupExampleInput" class="form-label">S.No</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="3">
+        </div>
+        <div class="col-12 col-md-15 mb-3">
+          <label for="formGroupExampleInput2" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ramya">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-12 col-md-15 mb-3">
+          <label for="formGroupExampleInput3" class="form-label">Relationship</label>
+          <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Sister">
+        </div>
+        <div class="col-12 col-md-15 mb-3">
+          <label for="formGroupExampleInput4" class="form-label">Date Of Birth</label>
+          <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="14-07-2005">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-12 mb-3">
+          <button type="submit" class="btn btn-warning w-100">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function editRow(button) {
+    const row = button.closest('tr');
+    const cells = row.getElementsByTagName('td');
+    alert(`Editing row: \nName: ${cells[0].innerText} \nHandle: ${cells[1].innerText}`);
+  }
+
+  function deleteRow(button) {
+    const row = button.closest('tr');
+    row.remove();
+  }
+</script>
+
+</body>
+</html>
